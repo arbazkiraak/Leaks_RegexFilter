@@ -17,7 +17,7 @@ class RegexFilter:
                     regex = re.compile(pattern).findall(req.text)
                     if len(regex) > 0:
                         for res in regex:
-                            self.final_result[str(each_url)].append(res) 
+                            self.final_result[str(each_url)].append(description) 
             self.output()
         else:
             print('unknown option.')
