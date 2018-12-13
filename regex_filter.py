@@ -7,8 +7,18 @@ class RegexFilter:
         self.ftype = ftype
         self.final_result = defaultdict(list)
         
-        if self.ftype == 'offline':
-            print('woot')
+        if self.ftype == 'offline' and isinstance(self.inputfile,'dict'):
+            for each_file,each_url in self.inputfile.items():
+                each_file = each_file.strip('\r\n')
+                fread = open(each_file,encoding="utf8").read().strip('\r\n')
+                for description,pattern in regexdict.items():
+                    pattern =  r"{}".format(pattern)
+                    regex = re.compile(pattern).findall(fread)
+                    if len(regex) > 0:
+                        for res in regex:
+                            self.final_result[str(each_url)].append(description)
+                fread.close()
+                            
         elif self.ftype == 'online':
             for each_url in self.inputfile:
                 req = requests.get(each_url)
@@ -20,7 +30,7 @@ class RegexFilter:
                             self.final_result[str(each_url)].append(description) 
             self.output()
         else:
-            print('unknown option.')
+            exit("wrong option buddy!")
         
     def output(self):
         return self.final_result
