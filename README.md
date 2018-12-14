@@ -51,3 +51,7 @@ for each_iter in range(len(obj['regexes'])):
     
 print(regexdict)
 ```
+
+<i>`Verifying`</i>
+
+$ printf 'http://username:password@example.com/sagsagasggsaasggggg' | grep -P "[a-zA-Z]{3,10}://[^/\s:@]{3,20}:[^/\s:@]{3,20}@.{1,100}"
