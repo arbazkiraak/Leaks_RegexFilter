@@ -1,6 +1,14 @@
 # Regex-Filter
 
-<b>STATUS : DEVELOPING</b>
+```python
+            all_paths = {'url':'file','url2','file2'}
+            toml_file = '/dir/reg.toml'
+            PAGE_OUTPUT_DIR = '/dir/output/'
+            X = RegexFilter(all_paths,'offline',toml_file,PAGE_OUTPUT_DIR)
+            print(X.output())
+```
+
+<hr><hr><hr>
 
 Use Case 1: `online`
 
