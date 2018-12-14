@@ -36,3 +36,18 @@ out:
 ````
 
 <i>`Random helper`</i>
+
+
+```python
+regexdict = {}
+import pytoml as toml
+with open('file.toml', 'rb') as fin:
+    obj = toml.load(fin)
+for each_iter in range(len(obj['regexes'])):
+     description = (obj['regexes'][each_iter]['description'])
+     pattern = (obj['regexes'][each_iter]['regex'])
+     print(description,':',pattern)
+     regexdict[description] = pattern
+    
+print(regexdict)
+```
