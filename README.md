@@ -21,15 +21,18 @@ XX.items()
 
 ```
 
+Output Rendering :
+
 ```python
 from collections import Counter
+res = {}
 for each_url,each_res in XX.items():
     pattern_match_count = dict(Counter(each_res))
-    print(each_url,a)
+    res[each_url] = pattern_match_count
 ```
-
+out:
 ````
-> https://github.com/realchief/Node.js_Ecommerce/blob/c917f1aaeeb42a83677ef18fa036843ea603b85e/environment.json {'PASS': 213}
+{'https://github.com/realchief/Node.js_Ecommerce/blob/c917f1aaeeb42a83677ef18fa036843ea603b85e/environment.json': {'PASS': 213}}
 ````
 
 <i>`Random helper`</i>
