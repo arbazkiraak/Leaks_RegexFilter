@@ -1,11 +1,14 @@
 import requests,json,re
 from collections import defaultdict
+from collections import Counter
+
 class RegexFilter:
     def __init__(self,inputfile,ftype,regexdict):
         self.inputfile = inputfile
         self.regexdict = regexdict
         self.ftype = ftype
         self.final_result = defaultdict(list)
+        self.final_output = {}
         
         if self.ftype == 'offline' and isinstance(self.inputfile,dict):
             for each_file,each_url in self.inputfile.items():
@@ -34,4 +37,7 @@ class RegexFilter:
             exit("wrong option buddy!")
         
     def output(self):
-        return self.final_result
+        for each_url,each_res in self.final_result.items():
+            pattern_match_count = dict(Counter(each_res))
+            self.final_output[each_url] = pattern_match_count
+        return self.final_output
