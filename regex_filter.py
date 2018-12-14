@@ -53,17 +53,22 @@ class RegexFilter:
                 
                
     def Online_Regexer(self,each_url):
-        req = requests.get(each_url)
-        for description,pattern in self.regexdict.items():
-            pattern =  r"{}".format(pattern)
-            regex = re.compile(pattern).findall(req.text)
-            if len(regex) > 0:
-                for res in regex:
-                    self.final_result[str(each_url)].append(description) 
+        try:
+            req = requests.get(each_url)
+            for description,pattern in self.regexdict.items():
+                pattern =  r"{}".format(pattern)
+                regex = re.compile(pattern).findall(req.text)
+                if len(regex) > 0:
+                    for res in regex:
+                        self.final_result[str(each_url)].append(description) 
+        except requests.exceptions.RequestException as e:
+            print("Connection Refused to : ",str(each_url))
+            print(str(e))
         
     def output(self):
         for t in self.threads:
             t.join()
+        print(self.final_result)
         for each_url,each_res in self.final_result.items():
             pattern_match_count = dict(Counter(each_res))
             self.final_output[each_url] = pattern_match_count
