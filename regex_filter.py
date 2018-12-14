@@ -2,24 +2,34 @@ import requests,json,re
 from collections import defaultdict
 from collections import Counter
 import queue,threading
+import pytoml as toml
 
 class RegexFilter:
     THREAD_NUM = 5
-    def __init__(self,inputfile,ftype,regexdict):
+    def __init__(self,inputfile,ftype,tom_file,outputdir):
         self.inputfile = inputfile
-        self.regexdict = regexdict
+        self.outputdir = outputdir
         self.ftype = ftype
         self.final_result = defaultdict(list)
         self.final_output = {}
         self.q = queue.Queue()
         self.threads = []
+        self.regexdict = {}
+        
+        with open(tom_file, 'rb') as fin:
+            obj = toml.load(fin)
+        for each_iter in range(len(obj['regexes'])):
+             description = (obj['regexes'][each_iter]['description'])
+             pattern = (obj['regexes'][each_iter]['regex'])
+             self.regexdict[description] = pattern
         
         if self.ftype == 'offline' and isinstance(self.inputfile,dict):
-            for each_file,each_url in self.inputfile.items():
-                each_file = each_file.strip('\r\n')
-                fopen = open(each_file,encoding="utf8")
+            for each_url,each_file in self.inputfile.items():
+                # each_file = each_file.strip('\r\n')
+                # print(each_)
+                fopen = open(str(self.outputdir)+str(each_file),encoding="utf8")
                 fread = fopen.read().strip('\r\n')
-                for description,pattern in regexdict.items():
+                for description,pattern in self.regexdict.items():
                     pattern =  r"{}".format(pattern)
                     regex = re.compile(pattern).findall(fread)
                     if len(regex) > 0:
@@ -44,7 +54,7 @@ class RegexFilter:
                
     def Online_Regexer(self,each_url):
         req = requests.get(each_url)
-        for description,pattern in regexdict.items():
+        for description,pattern in self.regexdict.items():
             pattern =  r"{}".format(pattern)
             regex = re.compile(pattern).findall(req.text)
             if len(regex) > 0:
