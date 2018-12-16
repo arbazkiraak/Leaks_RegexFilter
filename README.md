@@ -31,7 +31,7 @@ Use Case 2: `offline`
 
 ```python
 
-X = RegexFilter({r'/kiraakboi/cralwed/woot/1.raw':'1'},'offline',{'CSE':'.+\.txt','/woot/gitleaks.toml','/path/to/output/dir/to/store/results')
+X = RegexFilter({r'/kiraakboi/cralwed/woot/1.raw':'1'},'offline','/woot/gitleaks.toml','/path/to/output/dir/to/store/results')
 XX = X.output()
 XX.items()
 
