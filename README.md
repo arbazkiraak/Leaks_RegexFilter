@@ -14,9 +14,9 @@ Want to use it anywhere besides github? <br>
 
 <hr><hr><hr>
 
-`all_paths` : LIST OF URLS/LOCAL FILES
-`offline` or `online` : OFFLINE FOR LOCAL FILES | ONLINE FOR LIST OF URLS
-`toml_file` : PATH FOR TOML FILE
+`all_paths` : LIST OF URLS/LOCAL FILES <br>
+`offline` or `online` : OFFLINE FOR LOCAL FILES | ONLINE FOR LIST OF URLS <br>
+`toml_file` : PATH FOR TOML FILE <br>
 
 Use Case 1: `online`
 
