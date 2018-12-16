@@ -14,11 +14,15 @@ Want to use it anywhere besides github? <br>
 
 <hr><hr><hr>
 
+`all_paths` : LIST OF URLS/LOCAL FILES
+`offline` or `online` : OFFLINE FOR LOCAL FILES | ONLINE FOR LIST OF URLS
+`toml_file` : PATH FOR TOML FILE
+
 Use Case 1: `online`
 
 ```python
 
-X = RegexFilter(['https://github.com/hackerarbaz/Tryme/blob/master/creds.py','http://anysite.com/'],'online',{'CSE':'.+\.xml','PASS':'PASSWORD'})
+X = RegexFilter(['https://github.com/hackerarbaz/Tryme/blob/master/creds.py','http://anysite.com/'],'online','/woot/gitleaks.toml')
 XX = X.output()
 XX.items()
 ```
@@ -27,7 +31,7 @@ Use Case 2: `offline`
 
 ```python
 
-X = RegexFilter({r'/kiraakboi/cralwed/woot/1.raw':'1'},'offline',{'CSE':'.+\.txt','PASS':'checking '})
+X = RegexFilter({r'/kiraakboi/cralwed/woot/1.raw':'1'},'offline',{'CSE':'.+\.txt','/woot/gitleaks.toml','/path/to/output/dir/to/store/results')
 XX = X.output()
 XX.items()
 
