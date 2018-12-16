@@ -1,5 +1,9 @@
 # Regex-Filter
 
+> Are you fan of https://github.com/zricethezav/gitleaks ? <br>
+Want to use it anywhere besides github? <br>
+<i> TOML format : `https://github.com/zricethezav/gitleaks/blob/master/gitleaks.toml` </i>
+
 ```python
             all_paths = {'url':'file','url2','file2'}
             toml_file = '/dir/reg.toml'
