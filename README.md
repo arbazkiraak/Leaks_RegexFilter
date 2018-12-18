@@ -1,5 +1,7 @@
 # Regex-Filter
 
+This is just an simple script not an `tool`, could be handy to add it in your tools.
+
 > Are you fan of https://github.com/zricethezav/gitleaks ? <br>
 Want to use it anywhere besides github? <br>
 <i> TOML format : `https://github.com/zricethezav/gitleaks/blob/master/gitleaks.toml` </i>
@@ -51,6 +53,20 @@ out:
 {'https://github.com/realchief/Node.js_Ecommerce/blob/c917f1aaeeb42a83677ef18fa036843ea603b85e/environment.json': {'PASS': 213}}
 ````
 
+If you want Dict values format of result: 
+
+```python
+final_dict = {}
+for url,occurance in XX.items():
+    temp = []
+    for k,v in occurance.items():
+        print(k+':'+str(v))
+        temp.append((k+':'+str(v)))
+    final_dict[url] = temp
+final_dict
+```
+
+
 <i>`Random helper`</i>
 
 
@@ -73,3 +89,4 @@ print(regexdict)
 `
 $ printf 'http://username:password@example.com/sagsagasggsaasggggg' | grep -P "[a-zA-Z]{3,10}://[^/\s:@]{3,20}:[^/\s:@]{3,20}@.{1,100}"
 `
+
