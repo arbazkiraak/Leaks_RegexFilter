@@ -53,7 +53,7 @@ out:
 {'https://github.com/realchief/Node.js_Ecommerce/blob/c917f1aaeeb42a83677ef18fa036843ea603b85e/environment.json': {'PASS': 213}}
 ````
 
-If you want Dict values format of result: 
+If you want Dict values `list` based format of result: 
 
 ```python
 final_dict = {}
