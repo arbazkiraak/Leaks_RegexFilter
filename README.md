@@ -2,6 +2,8 @@
 
 This is just an simple script not an `tool`, could be handy to add it in your <del>Automation</del>tools.
 
+![Example](https://i.imgur.com/yaLTrU5.png)
+
 > Are you fan of https://github.com/zricethezav/gitleaks ? <br>
 Want to use it anywhere besides github? <br>
 <i> TOML format : `https://github.com/zricethezav/gitleaks/blob/master/gitleaks.toml` </i>
