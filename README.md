@@ -1,6 +1,6 @@
 # Regex-Filter
 
-This is just an simple script not an `tool`, could be handy to add it in your tools.
+This is just an simple script not an `tool`, could be handy to add it in your <del>Automation</del>tools.
 
 > Are you fan of https://github.com/zricethezav/gitleaks ? <br>
 Want to use it anywhere besides github? <br>
